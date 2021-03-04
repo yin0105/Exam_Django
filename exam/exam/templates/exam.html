@@ -30,7 +30,7 @@
 
 </head>
 
-<body class="">
+<body onload="on_load()">
   <div class="wrapper ">
 
     <div class="main-panel">
@@ -49,24 +49,44 @@
                 <div class="card-body">
                   <div class="card-content">
                     {% for i in o %}
-                      <div>
-                        {{ i }}
+                      <div class="">
+                        <input type="radio" name="pre_ans"> {{ i }}
                       </div>
                     {% endfor %}
+                  </div>
+                  <div class="row justify-content-md-center first_page">
+                    <div class="col-md-2">
+                      <button type="button" class="btn btn-primary pull-right" onclick="test()">{{ btn_name }}</button>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
         </div>
       </div>
-
-
     </div>
   </div>
 
   <!-- Specific Page JS goes HERE  -->
+  <script>
+    var counter = 0;
+
+    function on_load() {
+      counter = 0;
+      correct_ans = "{{ a }}";
+      alert("correct answer = " + correct_ans);
+    }
+    function test() {
+      alert("test");
+      alert(counter);
+      if (counter == 0) {
+        alert("aa");
+        // document.getElementsByName("pre_ans")[correct_ans].c
+        alert(correct_ans);
+      }
+    }
+  </script>
 </body>
 </html>

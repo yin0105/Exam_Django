@@ -12,7 +12,7 @@ current_q_number = 0
 q_count = 0
 
 def index(request):
-    global problem_list, problem_list_2, q_count
+    global problem_list, problem_list_2, q_count, current_q_number
 
     problem_list.clear()
     problem_list_2.clear()
@@ -50,6 +50,8 @@ def index(request):
     context["total_q_count"] = len(problem_list)
     context["q_count"] = q_count
     context["p_list"] = problem_list
+    current_q_number = 0
+    print("cur = " + str(current_q_number))
     html_template = loader.get_template( 'index.html' )
     return HttpResponse(html_template.render(context, request))
 
@@ -69,6 +71,7 @@ def exam(request):
         context["btn_name"] = "Next"
     else:
         context["btn_name"] = "Finish"
+    print("cur = " + str(current_q_number))
     html_template = loader.get_template( 'exam.html' )
     return HttpResponse(html_template.render(context, request))    
 

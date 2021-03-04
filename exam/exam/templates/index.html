@@ -44,18 +44,21 @@
               <div class="card">
                 <div class="card-header card-header-primary">
                   <h4 class="card-title ">Simple Table</h4>
-                  <p class="card-category"> Here is a subtitle for this table</p>
+                  <!-- <p class="card-category"> Here is a subtitle for this table</p> -->
                 </div>
                 <div class="card-body">
-                  <div class="row justify-content-md-center first_page">
-                    Data file : {{ data_file }}
+                  <div class="card-content">
+                    <div class="row justify-content-md-center first_page">
+                      Data file : {{ data_file }}
+                    </div>
+                    <div class="row justify-content-md-center first_page">
+                      Total Number Of Problems : {{ total_q_count }}
+                    </div>
+                    <div class="row justify-content-md-center first_page">
+                      Number Of Questions To Be Submitted : {{ q_count }}
+                    </div>
                   </div>
-                  <div class="row justify-content-md-center first_page">
-                    Total Number Of Problems : {{ total_q_count }}
-                  </div>
-                  <div class="row justify-content-md-center first_page">
-                    Number Of Questions To Be Submitted : {{ q_count }}
-                  </div>
+                  
                   <div class="row justify-content-md-center first_page">
                     <div class="col-md-2">
                       <button type="submit" class="btn btn-primary pull-right" onclick="location.href='/exam'">Start Exam</button>

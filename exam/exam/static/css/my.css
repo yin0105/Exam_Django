@@ -1,6 +1,8 @@
 .main-panel {
-    width: calc(100% - 260px);
-    left: 130px;
+    width: 1000px;
+    left: calc(50%-500px);
+    left:-webkit-calc(50%-500px);
+    left:-moz-calc(50%-500px);
     float: none;
 }
 
@@ -15,7 +17,7 @@ div .first_page {
 }
 
 button {
-    top: 100px;
+    top: 30px;
 }
 
 .card-content {
