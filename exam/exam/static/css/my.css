@@ -1,0 +1,30 @@
+.main-panel {
+    width: calc(100% - 260px);
+    left: 130px;
+    float: none;
+}
+
+.card {
+    height: 700px;
+    top: 0px;
+}
+
+div .first_page {
+    font-size: 35px;
+    margin: 65px;
+}
+
+button {
+    top: 100px;
+}
+
+.card-content {
+    margin: 30px 50px;
+    height: 400px
+
+}
+
+.card-content div {
+    font-size: 30px;
+    line-height: 50px;
+}

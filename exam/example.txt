@@ -1,0 +1,30 @@
+Q: Who is the current Prime Minister of Great Britain?
+
+1: A potato
+2: Margret Thatcher
+3: Mario
+4: Boris Johnson
+
+A: 4
+
+---
+
+Q: What is the most popular operating system?
+
+1: Cheese
+2: Windows
+3: Tomato
+4: Stone
+
+A: 2
+
+---
+
+Q: What is commonly made from potatoes?
+
+1: Eggs
+2: Lasers
+3: Chips
+4: Video games
+
+A: 3
