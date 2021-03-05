@@ -5,7 +5,7 @@
 }
 
 .card {
-    height: 700px;
+    height: 550px;
     top: 0px;
 }
 
@@ -27,7 +27,7 @@
 
 .card-content {
     margin: 30px 50px;
-    height: 450px
+    height: 400px
 
 }
 
@@ -61,4 +61,27 @@ label {
 .score {
     font-size: 100px;
     color: red;
+}
+
+#header {
+    font-size: 20px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+#pre-ans {
+    font-style: italic;
+    color: cadetblue;
+}
+
+.your_score {
+    text-align: center;
+    font-size: 70px !important;
+    font-family: 'Lobster';
+    margin: 15px 0 25px 0;
+    color: #ee3a43;
+}
+
+.your_score span {
+    color: #000;
 }

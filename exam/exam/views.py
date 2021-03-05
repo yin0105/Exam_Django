@@ -98,6 +98,9 @@ def exam(request):
         context["btn_name"] = "Finish"
     print("cur = " + str(current_q_number))
     print(context["o"])
+
+    context["total"] = q_count
+    context["cur"] = current_q_number
     html_template = loader.get_template( 'exam.html' )
     return HttpResponse(html_template.render(context, request))    
 
