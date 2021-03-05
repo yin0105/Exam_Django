@@ -48,9 +48,9 @@
                 </div>
                 <div class="card-body">
                   <div class="card-content">
-                    {% for i in o %}
+                    {% for s in o %}
                       <div class="">
-                        <input type="radio" name="pre_ans"> {{ i }}
+                        <input type="radio" name="pre_ans" value="{{ forloop.counter }}"> {{ s }}
                       </div>
                     {% endfor %}
                   </div>

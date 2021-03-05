@@ -59,7 +59,7 @@ def index(request):
 def exam(request):
     global problem_list_2, current_q_number
     
-    n = random.randint(0, len(problem_list_2))
+    n = random.randint(0, len(problem_list_2)-1)
     current_q_number += 1
     print(str(n) + " : " + str(len(problem_list_2)))
 
