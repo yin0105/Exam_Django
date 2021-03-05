@@ -1,8 +1,6 @@
 .main-panel {
     width: 1000px;
-    left: calc(50%-500px);
-    left:-webkit-calc(50%-500px);
-    left:-moz-calc(50%-500px);
+    left: calc(50% - 500px);
     float: none;
 }
 

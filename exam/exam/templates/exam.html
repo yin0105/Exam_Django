@@ -83,35 +83,23 @@
       correct = 0;
     });
 
-    // function test() {
-    //   alert("test");
-    //   alert(counter);
-    //   if (counter == 0) {
-    //     alert("aa");
-    //     // document.getElementsByName("pre_ans")[correct_ans].c
-    //     alert(correct_ans);
-    //   }
-    // }
-
     $( ".rd-option" ).click(function() {
-      console.log("pre_ans");
       $(".lb-option").removeClass("lb-option-sel")
       $(this).siblings("label").addClass("lb-option-sel");
-      console.log($(this).siblings("label").text());
-      console.log($(".lb-option").eq(correct_ans-1).text());
       if ($(this).siblings("label").text() == $(".lb-option").eq(correct_ans-1).text()) {
         correct = 1;
-        console.log("correct");
       }else {
         correct = 0;
       }
     });
 
+    $( ".lb-option" ).click(function() {
+      $(this).siblings("input").click();
+    });
+
     $("#btn").click(function() {
-      console.log(counter);
       if (counter == 0) {
         if (correct == 1) {
-          // alert("It's Correct!");
           $("#lb_stat").text("It's Correct!");
         }else {
           $("#lb_stat").text("It's Wrong!");
@@ -123,11 +111,6 @@
       }
       counter++;
     });
-
-    // $( ".lb-option" ).click(function() {
-    //   console.log("pre_ans");
-    //   $(this).addClass("rd-option-sel");
-    // });
   </script>
 </body>
 </html>
