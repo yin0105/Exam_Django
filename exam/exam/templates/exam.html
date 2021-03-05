@@ -55,11 +55,13 @@
                       </div>
                     {% endfor %}
                   </div>
-                  <div class="row justify-content-md-center first_page">
-                    <div class="col-md-2">
-                      <button type="button" class="btn btn-primary pull-right" id="btn">OK</button>
-                    </div>
+                  <div class="d-flex justify-content-md-center lb-stat-pos">
+                    <label id="lb_stat"></label>
                   </div>
+                  <div class="d-flex justify-content-md-center button-pos">
+                    <button type="button" class="btn btn-primary pull-right" id="btn">OK</button>
+                  </div>
+                  
                 </div>
               </div>
             </div>
@@ -81,15 +83,15 @@
       correct = 0;
     });
 
-    function test() {
-      alert("test");
-      alert(counter);
-      if (counter == 0) {
-        alert("aa");
-        // document.getElementsByName("pre_ans")[correct_ans].c
-        alert(correct_ans);
-      }
-    }
+    // function test() {
+    //   alert("test");
+    //   alert(counter);
+    //   if (counter == 0) {
+    //     alert("aa");
+    //     // document.getElementsByName("pre_ans")[correct_ans].c
+    //     alert(correct_ans);
+    //   }
+    // }
 
     $( ".rd-option" ).click(function() {
       console.log("pre_ans");
@@ -109,9 +111,10 @@
       console.log(counter);
       if (counter == 0) {
         if (correct == 1) {
-          alert("It's Correct!");
+          // alert("It's Correct!");
+          $("#lb_stat").text("It's Correct!");
         }else {
-          alert("It's Wrong!")
+          $("#lb_stat").text("It's Wrong!");
           $(".lb-option").eq(correct_ans-1).addClass("lb-option-correct");  
         }
         $(this).html("{{ btn_name }}");

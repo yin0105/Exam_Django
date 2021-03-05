@@ -11,18 +11,25 @@
     top: 0px;
 }
 
-div .first_page {
-    font-size: 35px;
-    margin: 65px;
+.button-pos {
+    bottom: 30px;
+    position: absolute;
+    width: calc(100% - 40px);
 }
 
-button {
-    top: 30px;
+.lb-stat-pos {
+    bottom: 120px;
+    position: absolute;
+    width: calc(100% - 40px);    
+}
+
+.lb-stat-pos label {
+    color: red;
 }
 
 .card-content {
     margin: 30px 50px;
-    height: 400px
+    height: 450px
 
 }
 
@@ -37,4 +44,23 @@ button {
 .card-content div {
     font-size: 30px;
     line-height: 50px;
+}
+
+div .first_page {
+    font-size: 35px;
+    margin: 40px;
+}
+
+label {
+    font-size: 18px;
+}
+
+.lb-score {
+    font-size: 100px;
+    color: blue;
+}
+
+.score {
+    font-size: 100px;
+    color: red;
 }

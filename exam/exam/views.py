@@ -3,13 +3,17 @@ from django.shortcuts import redirect
 from django.template import loader
 from django.http import HttpResponse
 from django import template
-import random
+import random, os
+from os.path import join, dirname
+from dotenv import load_dotenv
 
-# @login_required(login_url="/login/")
+dotenv_path = join(dirname(__file__), '../.env')
+load_dotenv(dotenv_path)
+
 problem_list = []
 problem_list_2 = []
 current_q_number = 0
-q_count = 0
+q_count = int(os.environ.get('QUESTIONS_COUNT'))
 correct_number = 0
 
 def index(request):
@@ -18,8 +22,7 @@ def index(request):
     problem_list.clear()
     problem_list_2.clear()
 
-    data_file = "example.txt"
-    q_count = 2
+    data_file = os.environ.get('DATA_FILE')
     f = open(data_file, "r")
     
     problem = {}
