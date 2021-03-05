@@ -67,11 +67,11 @@
                         <label class="lb-option">{{ s }}</label>
                       </div> -->
                     {% endfor %}
-                    <script>pre_ans.shift()</script>
+                    <script>var correct_ans_val = pre_ans["{{ a }}" - 1]; console.log("correct_ans_val_2 = " + correct_ans_val); pre_ans.shift()</script>
                   </div>
-                  <!-- <div class="d-flex justify-content-md-center lb-stat-pos">
+                  <div class="d-flex justify-content-md-center lb-stat-pos">
                     <label id="lb_stat"></label>
-                  </div> -->
+                  </div>
                   <div class="d-flex justify-content-md-center button-pos">
                     <button type="button" class="btn btn-primary pull-left" id="btn_yes">YES</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <button type="button" class="btn btn-primary pull-right" id="btn_no">NO</button>
@@ -117,7 +117,7 @@
         if (correct == 1) {
           $("#lb_stat").text("It's Correct!");
         }else {
-          $("#lb_stat").text("It's Wrong!");
+          $("#lb_stat").text("Wrong, it's actually: Windows");
           $(".lb-option").eq(correct_ans-1).addClass("lb-option-correct");  
         }
         $(this).html("{{ btn_name }}");
@@ -135,13 +135,21 @@
     });
 
     $("#btn_yes").click(function() {
-      console.log("correct answer = " + correct_ans);
-      console.log("answer = " + pre_ans_val);
-      if (correct_ans == pre_ans_val) {
-        location.href = "/exam?correct=1";
+      console.log($("#lb_stat").text());
+      if ($("#lb_stat").text() == "") {
+        if (correct_ans == pre_ans_val) {
+          $("#lb_stat").text("Correct");
+        } else {
+          $("#lb_stat").text("Wrong, it's actually: " + correct_ans_val);
+        }
       } else {
-        location.href = "/exam?correct=0";
+        if (correct_ans == pre_ans_val) {
+          location.href = "/exam?correct=1";
+        } else {
+          location.href = "/exam?correct=0";
+        }
       }
+      
 
     });
   </script>
