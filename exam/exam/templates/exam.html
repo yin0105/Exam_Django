@@ -30,7 +30,7 @@
 
 </head>
 
-<body onload="on_load()">
+<body>
   <div class="wrapper ">
 
     <div class="main-panel">
@@ -50,13 +50,14 @@
                   <div class="card-content">
                     {% for s in o %}
                       <div class="">
-                        <input type="radio" name="pre_ans" value="{{ forloop.counter }}"> {{ s }}
+                        <input type="radio" name="pre_ans" class="rd-option" value="{{ forloop.counter }}">
+                        <label class="lb-option">{{ s }}</label>
                       </div>
                     {% endfor %}
                   </div>
                   <div class="row justify-content-md-center first_page">
                     <div class="col-md-2">
-                      <button type="button" class="btn btn-primary pull-right" onclick="test()">{{ btn_name }}</button>
+                      <button type="button" class="btn btn-primary pull-right" id="btn">OK</button>
                     </div>
                   </div>
                 </div>
@@ -70,14 +71,16 @@
   </div>
 
   <!-- Specific Page JS goes HERE  -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
     var counter = 0;
 
-    function on_load() {
+    $( document ).ready(function() {
       counter = 0;
       correct_ans = "{{ a }}";
-      alert("correct answer = " + correct_ans);
-    }
+      correct = 0;
+    });
+
     function test() {
       alert("test");
       alert(counter);
@@ -87,6 +90,41 @@
         alert(correct_ans);
       }
     }
+
+    $( ".rd-option" ).click(function() {
+      console.log("pre_ans");
+      $(".lb-option").removeClass("lb-option-sel")
+      $(this).siblings("label").addClass("lb-option-sel");
+      console.log($(this).siblings("label").text());
+      console.log($(".lb-option").eq(correct_ans-1).text());
+      if ($(this).siblings("label").text() == $(".lb-option").eq(correct_ans-1).text()) {
+        correct = 1;
+        console.log("correct");
+      }else {
+        correct = 0;
+      }
+    });
+
+    $("#btn").click(function() {
+      console.log(counter);
+      if (counter == 0) {
+        if (correct == 1) {
+          alert("It's Correct!");
+        }else {
+          alert("It's Wrong!")
+          $(".lb-option").eq(correct_ans-1).addClass("lb-option-correct");  
+        }
+        $(this).html("{{ btn_name }}");
+      }else{
+        location.href = "/exam?correct=" + correct;
+      }
+      counter++;
+    });
+
+    // $( ".lb-option" ).click(function() {
+    //   console.log("pre_ans");
+    //   $(this).addClass("rd-option-sel");
+    // });
   </script>
 </body>
 </html>

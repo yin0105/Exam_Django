@@ -26,6 +26,14 @@ button {
 
 }
 
+.lb-option-sel {
+    color: blue;
+}
+
+.lb-option-correct {
+    color: red;
+}
+
 .card-content div {
     font-size: 30px;
     line-height: 50px;

@@ -10,6 +10,7 @@ problem_list = []
 problem_list_2 = []
 current_q_number = 0
 q_count = 0
+correct_number = 0
 
 def index(request):
     global problem_list, problem_list_2, q_count, current_q_number
@@ -34,16 +35,20 @@ def index(request):
             problem["q"] = row
         elif head[0].strip() == "A":
             problem["a"] = head[1].strip()
-            problem["o"] = options
-            problem_list.append(problem)
+            problem["o"] = options[:]
+            problem_list.append(problem.copy())
         else:
             print(row)
             options.append(head[1].strip())
+            print("OPtion")
+            print(options)
     
     
     problem_list_2 = problem_list[:]
     print(len(problem_list))
+    print(problem_list)
     print(len(problem_list_2))
+    print(problem_list_2)
     
     context = {}
     context["data_file"] = data_file
@@ -57,21 +62,39 @@ def index(request):
 
 
 def exam(request):
-    global problem_list_2, current_q_number
+    global problem_list, problem_list_2, current_q_number, correct_number, q_count
+    context = {}
+
+    if "correct" in request.GET:
+        correct_number += int(request.GET["correct"])
+    else:
+        current_q_number = 0
+        problem_list_2 = problem_list[:]
+        correct_number = 0
     
-    n = random.randint(0, len(problem_list_2)-1)
     current_q_number += 1
+    if current_q_number > q_count:
+        context["total"] = q_count
+        context["correct"] = correct_number
+        context["score"] = "{:.2f}".format(correct_number/q_count*5)
+        html_template = loader.get_template( 'evaluate.html' )
+        return HttpResponse(html_template.render(context, request))
+    n = random.randint(0, len(problem_list_2)-1)
     print(str(n) + " : " + str(len(problem_list_2)))
 
-    context = {}
+    
     context["q"] = problem_list_2[n]["q"]
     context["a"] = problem_list_2[n]["a"]
     context["o"] = problem_list_2[n]["o"]
+    del problem_list_2[n]
+    print("len = " + str(len(problem_list_2)))
+    print(problem_list_2)
     if current_q_number < q_count:
         context["btn_name"] = "Next"
     else:
         context["btn_name"] = "Finish"
     print("cur = " + str(current_q_number))
+    print(context["o"])
     html_template = loader.get_template( 'exam.html' )
     return HttpResponse(html_template.render(context, request))    
 
