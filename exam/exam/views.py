@@ -27,15 +27,26 @@ def index(request):
     
     problem = {}
     options = []
+    q = ""
+
     for row in f.readlines():
-        if row.strip() == "": continue
         row = row[:-1]
+        
+        if q != "":
+            if row.strip() == "":
+                problem["q"] = q
+                q = ""
+            else :
+                q += row
+                continue
+        
         head = row.split(":")
         if len(head) == 1: continue
         if head[0].strip() == "Q":
             problem.clear()
             options.clear()
-            problem["q"] = row
+            # problem["q"] = row
+            q = row
         elif head[0].strip() == "A":
             problem["a"] = head[1].strip()
             problem["o"] = options[:]
@@ -45,6 +56,25 @@ def index(request):
             options.append(head[1].strip())
             print("OPtion")
             print(options)
+
+    # for row in f.readlines():
+    #     if row.strip() == "": continue
+    #     row = row[:-1]
+    #     head = row.split(":")
+    #     if len(head) == 1: continue
+    #     if head[0].strip() == "Q":
+    #         problem.clear()
+    #         options.clear()
+    #         problem["q"] = row
+    #     elif head[0].strip() == "A":
+    #         problem["a"] = head[1].strip()
+    #         problem["o"] = options[:]
+    #         problem_list.append(problem.copy())
+    #     else:
+    #         print(row)
+    #         options.append(head[1].strip())
+    #         print("OPtion")
+    #         print(options)
     
     
     problem_list_2 = problem_list[:]

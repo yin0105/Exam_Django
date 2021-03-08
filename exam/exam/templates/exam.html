@@ -56,7 +56,7 @@
                     </div>
                     <script>var pre_ans = []; var pre_ans_val = 1;</script>
                     {% for s in o %}
-                      <script>pre_ans.push("{{ s }}")</script>
+                      <script>pre_ans.push("{{ s }}"); console.log("{{ s }}");</script>
                       {% if forloop.counter == 1 %}
                       <div id="pre-ans" class="mt-4">
                         {{ s }}
@@ -129,7 +129,7 @@
 
     $("#btn_no").click(function() {
       if (pre_ans.length > 0) {
-        $("#pre-ans").text(pre_ans.shift());
+        $("#pre-ans").html(pre_ans.shift());
         pre_ans_val++;
       }
     });

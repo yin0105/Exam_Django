@@ -1,4 +1,6 @@
-Q: Who is the current Prime Minister of Great Britain?
+Q: "Who is the current Prime 
+'Minister' of 
+Great Britain"?
 
 1: A potato
 2: Margret Thatcher
@@ -11,9 +13,9 @@ A: 4
 
 Q: What is the most popular operating system?
 
-1: Cheese
+1: "Cheese"
 2: Windows
-3: Tomato
+3: 'Docker Save'
 4: Stone
 
 A: 2
